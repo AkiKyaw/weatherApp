@@ -4,28 +4,48 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Weather Forecast App</title>
+    <link rel="stylesheet" href="src/style.css" />
   </head>
   <body>
-    <div class="content-box">
-      <input type="text" placeholder="Enter a city..." class="input-box" />
-      <input type="submit" value="Search" class="btn btn-search" />
-      <h1>Yangon</h1>
-      <div>
-        <div class="weather-detail">
-          Monday 16:21 <br />
-          Moderate rain <br />
-          Humidity: 87% <br />
-          Wind: 7.2km/h
+    <section>
+      <header>
+        <form>
+          <input
+            type="search"
+            placeholder="Enter a city..."
+            class="input-box"
+          />
+          <input type="submit" value="Search" class="btn-search" />
+        </form>
+      </header>
+      <main class="content-box">
+        <h1>Yangon</h1>
+        <div class="weather-container">
+          <div class="weather-detail">
+            Monday 16:21 <br />
+            Moderate rain <br />
+            Humidity: 87% <br />
+            Wind: 7.2km/h
+          </div>
+          <div class="weather-container-temp">
+            <div class="weather-emoji">☀️</div>
+            <div class="degreeC">24℃</div>
+          </div>
         </div>
-        <div class="weather-emoji">☀️</div>
-        <div class="degreeC">24℃</div>
-      </div>
-    </div>
-    <footer>
-      This project was coded by 
-      <a href="https://github.com/AkiKyaw" target="_blank">Ei Ei Kyaw</a> and is on
-      <a href="https://github.com/AkiKyaw/weatherApp" target="_blank">GitHub</a> and hosted on 
-      <a href="https://weather-forecast-app-withshecodes.netlify.app/" target="_blank">Netlify</a>
-    </footer>
+      </main>
+      <footer>
+        This project was developed by
+        <a href="https://github.com/AkiKyaw" target="_blank">Ei Ei Kyaw</a> and is available on
+        <a href="https://github.com/AkiKyaw/weatherApp" target="_blank"
+          >GitHub</a
+        >
+        , with hosting provided by
+        <a
+          href="https://weather-forecast-app-withshecodes.netlify.app/"
+          target="_blank"
+          >Netlify</a
+        >
+      </footer>
+    </section>
   </body>
 </html>
