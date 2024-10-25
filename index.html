@@ -9,17 +9,18 @@
   <body>
     <section>
       <header>
-        <form>
+        <form id="search-form">
           <input
             type="search"
             placeholder="Enter a city..."
             class="input-box"
+            id="input-box"
           />
-          <input type="submit" value="Search" class="btn-search" />
+          <input type="submit" value="Search" class="btn-search" id="btn-search" />
         </form>
       </header>
       <main class="content-box">
-        <h1>Yangon</h1>
+        <h1 id="city-display">Yangon</h1>
         <div class="weather-container">
           <div class="weather-detail">
             Monday 16:21 <br />
@@ -50,5 +51,6 @@
         >
       </footer>
     </section>
+    <script src="src/index.js"></script>
   </body>
 </html>
