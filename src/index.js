@@ -22,7 +22,7 @@ function showTemp(response) {
 
   // weather emoji
   let emojiElement = document.querySelector("#weather-emoji");
-  emojiElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon"  />`;
+  emojiElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon" alt="${response.data.condition.icon}"/>`;
   
   // date
   let dateElement = document.querySelector("#date");
