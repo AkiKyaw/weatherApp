@@ -103,6 +103,10 @@ footer {
   .input-box{
     margin-right: 5px;
   }
+
+  h1{
+    text-align: left;
+  }
   
   main{
     display: flex;
