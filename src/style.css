@@ -61,8 +61,8 @@ h1 {
 }
 
 .weather-detail {
-  font-size: 16px;
-  line-height: 24px;
+  font-size: 18px;
+  line-height: 30px;
   font-weight: 500;
 }
 
@@ -74,6 +74,12 @@ h1 {
 
 .weather-emoji {
   font-size: 50px;
+}
+
+.weather-app-icon{
+  height: 90px;
+  margin: 0;
+  padding: 0;
 }
 
 .degree {
@@ -91,4 +97,25 @@ footer {
   text-align: center;
   font-size: 12px;
   color: rgb(0, 0, 0, 0.6);
+}
+
+@media only screen and (max-width: 600px) {
+  .input-box{
+    margin-right: 5px;
+  }
+  
+  main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .weather-container{
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+  }
+
+  .weather-container-temp{
+    margin-bottom: 10px
+  }
 }
