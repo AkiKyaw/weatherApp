@@ -6,12 +6,12 @@ body {
     rgb(191, 241, 236) 22.3%,
     rgb(109, 192, 236) 84.1%
   );
-  max-height: 100vh;
 }
 
-section {
+
+.main-content {
   font-family: "Lato", sans-serif;
-  margin: 100px auto;
+  margin: 50px auto;
   max-width: 600px;
   background-color: #fff;
   padding: 30px;
@@ -119,7 +119,9 @@ footer {
 }
 
 .day-icon{
-  font-size: 2.3rem;
+  width: 50px;
+  display: block;
+  margin: auto;
 }
 
 .day-temp-container{

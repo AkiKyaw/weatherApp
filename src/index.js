@@ -28,6 +28,8 @@ function showTemp(response) {
   let dateElement = document.querySelector("#date");
   let date = new Date(response.data.time * 1000);
   dateElement.innerHTML = formatDate(date);
+
+  getForecast(response.data.city);
 }
 
 function formatDate(date) {
@@ -48,6 +50,10 @@ function formatDate(date) {
     minutes = `0${minutes}`;
   }
 
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+
   return `${day} ${hours}:${minutes}`;
 }
 
@@ -66,25 +72,44 @@ function searchInfo(event) {
 let searchBtnElement = document.querySelector("#search-form");
 searchBtnElement.addEventListener("submit", searchInfo);
 
-function forecastWeather() {
-  let day = ["Tue", "Wed", "Thur", "Fri", "Sat"];
-  let forecast = "";
+function formatDateForecats(timestamp){
+  let date = new Date (timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[date.getDay()];
+}
 
-  day.forEach(function (day) {
-    forecast += `
-    <div class="weather-forecast-day">g
-      <span class="day">${day}</span>
-      <span class="day-icon">☀️</span>
+function getForecast(city) {
+  let apiKey = "736746t37o0a4075f6772e4f9dc8291b";
+  let url = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(url).then(forecastWeather);
+}
+
+function forecastWeather(response) {
+  let forecast = "";
+  console.log(response.data.daily);
+  response.data.daily.forEach(function (day, index) {
+    if (index < 5) {
+      forecast += `
+    <div class="weather-forecast-day">
+      <span class="day">${formatDateForecats(day.time)}</span>
+      <img class="day-icon" src="${day.condition.icon_url}" />
       <div class="day-temp-container">
-        <span class="day-temp-highest">14°</span>
-        <span class="day-temp-lowest">10°</span>
+        <span class="day-temp-highest">${Math.round(
+          day.temperature.maximum
+        )}°</span>
+        <span class="day-temp-lowest">${Math.round(
+          day.temperature.minimum
+        )}°</span>
       </div>
     </div>
     `;
+    }
   });
+  
 
   let forecastElement = document.querySelector("#weather-forecast");
   forecastElement.innerHTML = forecast;
 }
 
-forecastWeather();
+searchCity("Yangon");
+forecastWeather("Yangon");
