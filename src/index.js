@@ -23,7 +23,7 @@ function showTemp(response) {
   // weather emoji
   let emojiElement = document.querySelector("#weather-emoji");
   emojiElement.innerHTML = `<img src="${response.data.condition.icon_url}" class="weather-app-icon" alt="${response.data.condition.icon}"/>`;
-  
+
   // date
   let dateElement = document.querySelector("#date");
   let date = new Date(response.data.time * 1000);
@@ -65,3 +65,26 @@ function searchInfo(event) {
 
 let searchBtnElement = document.querySelector("#search-form");
 searchBtnElement.addEventListener("submit", searchInfo);
+
+function forecastWeather() {
+  let day = ["Tue", "Wed", "Thur", "Fri", "Sat"];
+  let forecast = "";
+
+  day.forEach(function (day) {
+    forecast += `
+    <div class="weather-forecast-day">g
+      <span class="day">${day}</span>
+      <span class="day-icon">☀️</span>
+      <div class="day-temp-container">
+        <span class="day-temp-highest">14°</span>
+        <span class="day-temp-lowest">10°</span>
+      </div>
+    </div>
+    `;
+  });
+
+  let forecastElement = document.querySelector("#weather-forecast");
+  forecastElement.innerHTML = forecast;
+}
+
+forecastWeather();
